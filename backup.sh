@@ -1,4 +1,6 @@
 #!/bin/bash
+echo " |------------------------| "
+echo " | Start backup creating! | "
 BACKUP=/backup
 NOW="$(date +"%d-%m-%Y_%H%M")"
 OLD="$(date +"%d-%m-%Y" -d '-7 day')"
@@ -14,3 +16,18 @@ do
 done
 # delete old sql
 rm -r $BACKUP/sql/$OLD*
+
+
+echo " |------------------------| "
+echo " |  -> Backup created!    | "
+echo " |------------------------| "
+echo " |     Backup Paths:      | "
+for db in $DBS
+do
+	echo " | -> sql/$NOW/$db.sql "
+done
+echo " |------------------------| "
+echo " |          Bye!          | "
+echo " | Powered By Ali Khadivi | "
+echo " |------------------------| "
+
